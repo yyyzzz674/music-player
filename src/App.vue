@@ -1,12 +1,43 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">
+        推荐
+      </router-link> |
+      <router-link to="/person">
+        我的
+      </router-link> |
+      <router-link to="/link">
+        搜索
+      </router-link>
     </div>
-    <router-view/>
+    <router-view />
+    <play :play-list="getSongList" />
   </div>
 </template>
+<script>
+import Play from './components/Play'
+import { mapActions, mapGetters } from 'vuex'
+export default {
+  components: {
+    Play
+  },
+  data () {
+    return {
+    }
+  },
+  computed: {
+    ...mapGetters([ 'getSongList' ])
+  },
+  created () {
+    this.initSongList()
+  },
+  methods: {
+    ...mapActions(['initSongList'])
+  }
+}
+</script>
+
 <style lang="stylus">
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif

@@ -3,12 +3,12 @@
     <section class="container-list">
       <ul>
         <li
-          v-for="(item,index) in getRecommendList"
+          v-for="(item, index) in getRecommendList"
           :key="item.id"
-          class="item"
+          class="list"
           @click="selectListItem(item)"
         >
-          <span>{{ index+1 }}</span>
+          <span>{{ index + 1 }}</span>
           <span>{{ item.name }}</span>
         </li>
       </ul>
@@ -16,29 +16,33 @@
   </section>
 </template>
 
-<script type='text/javascript'>
-import { mapActions, mapGetters } from 'vuex'
+<script type="text/javascript">
+import { mapActions, mapGetters } from "vuex";
 export default {
-  data () {
+  data() {
     return {
-    }
+      str: "abcd"
+    };
   },
   computed: {
-    ...mapGetters([ 'getRecommendList' ])
+    ...mapGetters(["getRecommendList"])
   },
-  created () {
-    this.setRecommendList()
+  created() {
+    this.setRecommendList();
   },
   methods: {
-    ...mapActions(['setRecommendList'])
+    ...mapActions(["setRecommendList"])
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>
-.container
-  font-size: 16px
-  &-list li
-    color: #ff0000
-    list-style-type: none
+.container {
+  font-size: 16px;
+
+  &-list li {
+    color: #ff0000;
+    list-style-type: none;
+  }
+}
 </style>

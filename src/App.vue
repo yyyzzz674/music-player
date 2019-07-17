@@ -3,10 +3,12 @@
     <div id="nav">
       <router-link to="/">
         推荐
-      </router-link> |
+      </router-link>
+      |
       <router-link to="/person">
         我的
-      </router-link> |
+      </router-link>
+      |
       <router-link to="/link">
         搜索
       </router-link>
@@ -16,26 +18,25 @@
   </div>
 </template>
 <script>
-import Play from './components/Play'
-import { mapActions, mapGetters } from 'vuex'
+import Play from "./components/Play";
+import { mapActions, mapGetters } from "vuex";
 export default {
   components: {
     Play
   },
-  data () {
-    return {
-    }
+  data() {
+    return {};
   },
   computed: {
-    ...mapGetters(['getSongList'])
+    ...mapGetters(["getSongList"])
   },
-  created () {
-    this.initSongList()
+  created() {
+    this.initSongList();
   },
   methods: {
-    ...mapActions(['initSongList'])
+    ...mapActions(["initSongList"])
   }
-}
+};
 </script>
 
 <style lang="stylus">

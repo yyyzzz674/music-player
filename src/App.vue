@@ -1,40 +1,32 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">
-        推荐
-      </router-link>
-      |
-      <router-link to="/person">
-        我的
-      </router-link>
-      |
-      <router-link to="/link">
-        搜索
-      </router-link>
+    <div id="nav" class="navbar">
+      <router-link to="/">推荐</router-link>|
+      <router-link to="/person">我的</router-link>|
+      <router-link to="/link">搜索</router-link>
     </div>
     <router-view />
-    <play :play-list="getSongList" />
+    <bottom-bar :player-list="getPlayerList" class="bottombar" />
   </div>
 </template>
 <script>
-import Play from "./components/Play";
+import BottomBar from "./components/BottomBar";
 import { mapActions, mapGetters } from "vuex";
 export default {
   components: {
-    Play
+    BottomBar
   },
   data() {
     return {};
   },
   computed: {
-    ...mapGetters(["getSongList"])
+    ...mapGetters(["getPlayerList"])
   },
   created() {
-    this.initSongList();
+    this.initPlayerList();
   },
   methods: {
-    ...mapActions(["initSongList"])
+    ...mapActions(["initPlayerList"])
   }
 };
 </script>
@@ -48,16 +40,15 @@ export default {
   color: #2c3e50;
 }
 
-#nav {
+.navbar {
   padding: 30px;
+  height: 80px;
+  box-sizing: border-box;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.bottombar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 </style>

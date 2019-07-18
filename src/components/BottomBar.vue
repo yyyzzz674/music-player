@@ -3,12 +3,7 @@
     <Audio ref="audio" :src="url" controls autoplay="autoplay" />
     <button @click="showPlayList">播放列表</button>
     <div v-show="isShowPlayList" class="container-playerlist">
-      <li
-        v-for="(item, index) in playerList"
-        :key="item.id"
-        class="list"
-        @click="playSong(item)"
-      >
+      <li v-for="(item, index) in playerList" :key="item.id" class="list" @click="playSong(item)">
         <span>{{ index + 1 }}</span>
         <span>{{ item.name }}</span>
       </li>
@@ -36,9 +31,9 @@ export default {
       url: 'getSongURL'
     }),
   methods: {
-    ...mapActions(['setSongInf']),
+    ...mapActions(['setSongURL']),
     playSong(item) {
-      this.setSongInf(item.id)
+      this.setSongURL(item.id)
     },
     showPlayList() {
       this.isShowPlayList = !this.isShowPlayList
@@ -57,10 +52,6 @@ export default {
     heigth: 160px;
     background: #ffffff;
     min-height: 150px;
-
-    li {
-      list-style-type: none;
-    }
   }
 }
 </style>

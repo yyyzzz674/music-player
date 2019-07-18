@@ -20,3 +20,7 @@ export function getSongURL(id) {
   // 获取歌曲播放地址
   return axios.get(HOST + `/song/url?id=${id}`)
 }
+export function getSongInf(id) {
+  // 获取歌曲播放地址
+  return axios.get(HOST + `/song/detail?ids=${id}`)
+}

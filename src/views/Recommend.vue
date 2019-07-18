@@ -18,21 +18,21 @@
 </template>
 
 <script type="text/javascript">
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
       isShownRecommendList: true
-    };
+    }
   },
   computed: {
-    ...mapGetters(["getRecommendList"])
+    ...mapGetters(['getRecommendList'])
   },
   // beforeCreate() {
   //   console.log("beforecreated");
   // },
   created() {
-    this.setRecommendList();
+    this.setRecommendList()
   },
   // beforeMount() {
   //   console.log("beforeMount");
@@ -42,13 +42,13 @@ export default {
   // },
   beforeUpdate() {
     // console.log(this.$route.path);
-    var re = /recommend$/i;
+    var re = /recommend$/i
     if (this.$route.path.match(re)) {
       // 判断当前路径,若recommend结尾则加载推荐列表,若不以recommend结尾则不加载推荐列表
       // console.log(true);
-      this.isShownRecommendList = true;
+      this.isShownRecommendList = true
     } else {
-      this.isShownRecommendList = false;
+      this.isShownRecommendList = false
     }
     //   console.log("beforeupdate");
   },
@@ -62,14 +62,14 @@ export default {
   //   console.log("destroyeds");
   // },
   methods: {
-    ...mapActions(["setRecommendList", "setSongListDetail"]),
+    ...mapActions(['setRecommendList', 'setSongListDetail']),
     showRecommendListItem(item) {
-      this.isShownRecommendList = false;
-      this.setSongListDetail(item.id);
-      this.$router.push(`recommend/list/${item.id}`);
+      this.isShownRecommendList = false
+      this.setSongListDetail(item.id)
+      this.$router.push(`recommend/list/${item.id}`)
     }
   }
-};
+}
 </script>
 
 <style lang="stylus" scoped>

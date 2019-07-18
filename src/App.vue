@@ -10,25 +10,26 @@
   </div>
 </template>
 <script>
-import BottomBar from "./components/BottomBar";
-import { mapActions, mapGetters } from "vuex";
+import BottomBar from './components/BottomBar'
+
+import { mapActions, mapGetters } from 'vuex'
 export default {
   components: {
     BottomBar
   },
   data() {
-    return {};
+    return {}
   },
   computed: {
-    ...mapGetters(["getPlayerList"])
+    ...mapGetters(['getPlayerList'])
   },
   created() {
-    this.initPlayerList();
+    this.initPlayerList()
   },
   methods: {
-    ...mapActions(["initPlayerList"])
+    ...mapActions(['initPlayerList'])
   }
-};
+}
 </script>
 
 <style lang="stylus">

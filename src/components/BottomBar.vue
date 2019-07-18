@@ -1,6 +1,5 @@
 <template>
   <section class="container">
-    <span>音乐播放</span>
     <Audio ref="audio" :src="url" controls autoplay="autoplay" />
     <button @click="showPlayList">播放列表</button>
     <div v-show="isShowPlayList" class="container-playerlist">
@@ -17,7 +16,7 @@
   </section>
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters } from 'vuex'
 export default {
   props: {
     playerList: {
@@ -28,24 +27,24 @@ export default {
   data() {
     return {
       isShowPlayList: false
-    };
+    }
   },
 
   computed:
     // ...mapGetters(['getSongURL']),
     mapGetters({
-      url: "getSongURL"
+      url: 'getSongURL'
     }),
   methods: {
-    ...mapActions(["setSongInf"]),
+    ...mapActions(['setSongInf']),
     playSong(item) {
-      this.setSongInf(item.id);
+      this.setSongInf(item.id)
     },
     showPlayList() {
-      this.isShowPlayList = !this.isShowPlayList;
+      this.isShowPlayList = !this.isShowPlayList
     }
   }
-};
+}
 </script>
 <style lang="stylus" scoped>
 .container {

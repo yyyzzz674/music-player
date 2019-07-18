@@ -8,20 +8,20 @@
   </ul>
 </template>
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex'
 export default {
   data() {
-    return {};
+    return {}
   },
   computed: {
-    ...mapGetters(["getSongList"])
+    ...mapGetters(['getSongList'])
   },
   // beforeCreate() {
   //   console.log(" ListItem beforecreted");
   // }
   created() {
     if (this.getSongList.length === 0) {
-      this.setSongListDetail(this.$route.params.id);
+      this.setSongListDetail(this.$route.params.id)
     }
   },
   // beforeMount() {
@@ -43,12 +43,12 @@ export default {
   //   console.log("destroyeds");
   // },
   methods: {
-    ...mapActions(["addSongToPlayerList", "setSongListDetail"]),
+    ...mapActions(['addSongToPlayerList', 'setSongListDetail']),
     addSongToPlayerList_(item) {
-      this.addSongToPlayerList(item);
+      this.addSongToPlayerList(item)
     }
   }
-};
+}
 </script>
 <style lang="stylus" scoped>
 ul {

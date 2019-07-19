@@ -10,6 +10,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 export default {
+  name: 'SongList',
   data() {
     return {}
   },

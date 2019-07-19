@@ -14,6 +14,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 export default {
+  name: 'SongDetail',
   data() {
     return {
       name: '',

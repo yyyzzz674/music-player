@@ -1,24 +1,24 @@
 <template>
-  <section class="container">
-    <section class="recommend-list">
-      <ul>
-        <li
-          v-for="(item, index) in getRecommendList"
-          :key="item.id"
-          class="list"
-          @click="showRecommendListItem(item)"
-        >
-          <span>{{ index + 1 }}</span>
-          <span>{{ item.name }}</span>
-        </li>
-      </ul>
-    </section>
+  <section class="recommend">
+    <div
+      v-for="item in getRecommendList"
+      :key="item.id"
+      class="list"
+      @click="showRecommendListItem(item)"
+    >
+      <list-item :item="item" class="recommend-item"></list-item>
+    </div>
   </section>
 </template>
 
 <script type="text/javascript">
 import { mapActions, mapGetters } from 'vuex'
+import ListItem from '../components/ListItem'
 export default {
+  name: 'Recommmend',
+  components: {
+    ListItem
+  },
   data() {
     return {}
   },
@@ -38,11 +38,14 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.container {
-  font-size: 16px;
+.recommend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  font-size: 0.75em;
 
-  .recommend-list {
-    color: #ff0000;
+  &-item {
+    padding: 10px;
   }
 }
 </style>

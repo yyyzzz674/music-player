@@ -1,11 +1,14 @@
 <template>
   <div id="app">
     <div id="nav" class="navbar">
-      <router-link to="/">推荐</router-link>|
-      <router-link to="/person">我的</router-link>|
+      <!-- disable-eslint -->
+      <router-link to="/">推荐</router-link>
+      <span>|</span>
+      <router-link to="/person">我的</router-link>
+      <span>|</span>
       <router-link to="/link">搜索</router-link>
     </div>
-    <router-view />
+    <router-view class="container" />
     <bottom-bar :player-list="getPlayerList" class="bottombar" />
   </div>
 </template>
@@ -14,6 +17,7 @@ import BottomBar from './components/BottomBar'
 
 import { mapActions, mapGetters } from 'vuex'
 export default {
+  name: 'App',
   components: {
     BottomBar
   },
@@ -45,6 +49,10 @@ export default {
   padding: 30px;
   height: 80px;
   box-sizing: border-box;
+}
+
+.container {
+  padding: 30px;
 }
 
 .bottombar {

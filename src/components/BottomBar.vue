@@ -13,6 +13,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 export default {
+  name: 'BottomBar',
   props: {
     playerList: {
       type: Array,
